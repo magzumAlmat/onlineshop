@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { showCart, updatePrice } from '../../store/actions/cartActions';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 class CartIcon extends Component {
   showCart = () => {
     const { showCart } = this.props;
     showCart();
+  
   };
+
 
   render() {
     const { cartItems, totalPrice } = this.props.cart;
@@ -25,6 +28,7 @@ class CartIcon extends Component {
     );
   }
 }
+
 
 CartIcon.propTypes = {
   showCart: PropTypes.func.isRequired

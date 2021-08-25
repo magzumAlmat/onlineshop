@@ -13,10 +13,12 @@ import Profile from './components/profile/Profile'
 import Products from './components/projects/Products';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CartIcon from './components/cart/CartIcon';
+
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Cart from './components/cart/Cart';
 import CreateProduct from './components/projects/CreateProduct';
+import CreateOrder from './components/layout/CreateOrder';
+var selectedTab;
 class App extends Component {
   render() { 
     return (  
@@ -35,8 +37,8 @@ class App extends Component {
             <Route path='/project/:id/edit' component={EditProject} />
             <Route path='/profile' component={Profile} />
             <Route path='/products' component={Products} />
-            <Route path='/cart' component={CartIcon}/>
-          
+            <Route path='/cart' component={Cart} curTab={selectedTab}/>
+            <Route path='/createorder' component={CreateOrder} />
             
           </Switch>
        

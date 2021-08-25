@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updatePrice } from '../../store/actions/cartActions';
-import PassOrder from './PassOrder';
 
+import PassOrder from './PassOrder';
+import {closeCart} from './Cart';
 
 
 class TotalAmount extends Component {
@@ -14,9 +15,12 @@ class TotalAmount extends Component {
 
   // }
 
-
+ 
+   
+    //(document).getElementsByClassName('cart-inside active').addClass('');
+  
   render() {
-    
+    const {prod}=this.props
     const { totalPrice } = this.props.cart;
    
     return (
@@ -36,15 +40,26 @@ class TotalAmount extends Component {
         </div>
       
         <div>
-        {/* <p>все что внутри пропсов{prod}</p> */}
+      {/* <h1>111111111111111{console.log(prod)}</h1>
+      <h1>2222222222222{console.log(this.props.cart)}</h1> */}
+      {/* {this.props.cart
+          .map(t => <span>{t}</span>)
+          .reduce((prev, curr) => [prev, ', ', curr])}
+       
+        */}
+       
+       
           {/* {console.log(prod)}
           <p>Сумма {totalPrice}</p> */}
         </div>
       
       
       
-      
-      <p><PassOrder props={this.props}/></p>
+    
+      <PassOrder prod={this.props.cart}  />
+      {/* <button onClick={closeCart()}>close</button>
+           */}
+    
       </div>
     );
   }

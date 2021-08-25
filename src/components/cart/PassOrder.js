@@ -1,22 +1,25 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router'
+import { Link } from 'react-router-dom'
 
 export default class PassOrder extends Component {
+   
     render() {
-        
+        const Greeting = this.props.prod;
         return (
+            
             <div>
-                 <button type="button" className="btn-custom "  
-                    onClick={(props)=>(
-                        console.log('btn',this.props)
+               
+               
+             {console.log('вывод с PASS ORDER-----',this.props.prod)}
+             <Link to={{pathname:"/createorder",params:Greeting}} className='button' >
+                Создать заказ
+             </Link>
 
-                        )}
-                    // onClick={passCartData}
-                    >
-                    Сформировать заказ единожды
-                </button>
+           
 
-                
             </div>
         )
     }
 }
+

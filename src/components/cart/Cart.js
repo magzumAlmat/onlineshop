@@ -5,22 +5,31 @@ import { showCart, addItem } from '../../store/actions/cartActions';
 import CartItem from './CartItem';
 import TotalAmount from './TotalAmount';
 import uuid from 'uuid';
+let selectedTab;
 
 class Cart extends Component {
   showCart = () => {
     const { showCart } = this.props;
     showCart();
+    // selectedTab = value;
+    // this.props.history.push('/cart');
   };
-
   
-
+  // export  closeCart(){
+  //   console.log('внутри close CART')
+  //   let elem=document.getElementsByClassName("cart-inside active");
+  //   elem.forEach(el => el.remove());
+  //   this.closeCart();
+  //   }
+ 
 
   render() {
     const { isOpen, cartItems } = this.props.cart;
     return (
       <div className={`cart ${!isOpen ? 'transparent' : ''}`}>
         <div className={`cart-inside ${isOpen ? 'active' : ''}`}>
-          <h2>Корзина</h2>
+       
+         <h2>Корзина</h2>
           <button type="button" className="close" onClick={this.showCart}>
             &#xd7;
           </button>

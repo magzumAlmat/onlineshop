@@ -4,6 +4,8 @@ import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
 import { connect } from 'react-redux';
 import CartIcon from '../cart/CartIcon'
+import Cart from '../cart/Cart';
+import { useHistory } from "react-router-dom";
 
 // import Cart from '../cart/Cart'
 
@@ -19,7 +21,11 @@ const Navbar = (props) => {
                
                 {/* <CartIcon/> */}
                 {links}  
-                <CartIcon/>
+                
+                <CartIcon />
+              
+               
+                
                 
 
                 
