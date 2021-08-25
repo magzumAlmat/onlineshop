@@ -1,9 +1,9 @@
 import React from 'react';
 import moment from 'moment';
-import Products from './Products';
+// import Products from './Products';
 
-import { connect } from 'react-redux';
-import OptionsPanel from '../options/SortPrices';
+// import { connect } from 'react-redux';
+// import OptionsPanel from '../options/SortPrices';
 
 
 
@@ -30,8 +30,8 @@ const ProjectSummary = ({project}) => {
             );
 }
 
-const mapStateToProps = state => ({
-    sorting: state.sorting
-  });
+// const mapStateToProps = state => ({
+//     sorting: state.sorting
+//   });
   
 export default (ProjectSummary);

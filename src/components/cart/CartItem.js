@@ -2,6 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteItem, addItem, decrement } from '../../store/actions/cartActions';
 
+// export class passCart extends React.Component{
+//   render(){
+//     const { item } = this.props;
+//     console.log('Вот это все на данный момент в корзине',item)
+//     const summ=(item.price * Number(item.qty)).toFixed(2)
+//     console.log('Сумма = ',summ )
+//       return (
+//           <h1>{summ}</h1>
+//       )
+//    }
+// }
+
 class CartItem extends Component {
   onClick = id => {
     const { deleteItem } = this.props;
@@ -24,10 +36,19 @@ class CartItem extends Component {
     }
   };
 
+ 
+  // passCart(item){
+  //   console.log('Вот это все на данный момент в корзине',item)
+  //   const summ=(item.price * Number(item.qty)).toFixed(2)
+  //   console.log('Сумма = ',summ )
+  // }
+
+
   render() {
     const { item } = this.props;
-    console.log('CartITEM PROPS',item)
-    return (
+    // console.log('CartITEM PROPS',item)
+   
+    return (<>
       <React.Fragment>
         <div className="img-wrapper">
          
@@ -44,9 +65,11 @@ class CartItem extends Component {
               -
             </button>
             {item.qty}
+            
             <button className="btn add" onClick={this.increment.bind(this)}>
-              +
-            </button>
+              +    
+            </button>  
+
           </p>
         </div>
         <small className="price">{(item.price * Number(item.qty)).toFixed(2)} €</small>
@@ -55,14 +78,25 @@ class CartItem extends Component {
           className="close"
           onClick={this.onClick.bind(this, item.id)}
         >
-          &#xd7;
+          &#xd7;    
+         
         </button>
+        
+        
+
+
       </React.Fragment>
+     
+      </>
+      
     );
   }
 }
 
 export default connect(
   null,
-  { deleteItem, addItem, decrement }
+  { deleteItem, addItem, decrement}
 )(CartItem);
+
+
+

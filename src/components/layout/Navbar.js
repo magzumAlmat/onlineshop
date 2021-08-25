@@ -5,11 +5,11 @@ import SignedOutLinks from './SignedOutLinks';
 import { connect } from 'react-redux';
 import CartIcon from '../cart/CartIcon'
 
-import Cart from '../cart/Cart'
+// import Cart from '../cart/Cart'
 
 
 const Navbar = (props) => {
-    console.log('this is cardItem from navbar',props);
+    // console.log('this is cardItem from navbar',props);
     const { auth, profile } = props;
     const links = auth.uid ? <SignedInLinks profile={profile} /> : <SignedOutLinks />;
     return (

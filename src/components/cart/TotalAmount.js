@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updatePrice } from '../../store/actions/cartActions';
+import PassOrder from './PassOrder';
+
+
 
 class TotalAmount extends Component {
+  // handleSubmit(props){
+  //   // console.log('Button clicked')
+  //   console.log('Вот это все на данный момент в корзине',this.props.price)
+  //   console.log('Сумма = ',this.props.price*this.props.qty)
+    
+
+  // }
+
+
   render() {
+    
     const { totalPrice } = this.props.cart;
+   
     return (
       <div className="total-amount">
         <p>
@@ -13,13 +27,24 @@ class TotalAmount extends Component {
         </p>
         <p>
           <strong>Total</strong>
-          {totalPrice} €
+          {totalPrice} Т
         </p>
         <div className="text-center">
-          <button type="button" className="btn-custom disabled" disabled>
-            Go to checkout
-          </button>
+         
+
+          
         </div>
+      
+        <div>
+        {/* <p>все что внутри пропсов{prod}</p> */}
+          {/* {console.log(prod)}
+          <p>Сумма {totalPrice}</p> */}
+        </div>
+      
+      
+      
+      
+      <p><PassOrder props={this.props}/></p>
       </div>
     );
   }

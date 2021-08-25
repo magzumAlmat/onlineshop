@@ -12,12 +12,15 @@ class Cart extends Component {
     showCart();
   };
 
+  
+
+
   render() {
     const { isOpen, cartItems } = this.props.cart;
     return (
       <div className={`cart ${!isOpen ? 'transparent' : ''}`}>
         <div className={`cart-inside ${isOpen ? 'active' : ''}`}>
-          <h2>Shopping cart</h2>
+          <h2>Корзина</h2>
           <button type="button" className="close" onClick={this.showCart}>
             &#xd7;
           </button>
@@ -25,7 +28,7 @@ class Cart extends Component {
             <div className="items">
               {cartItems.length === 0 ? (
                 <h3>
-                  Nothing was added yet <i className="far fa-frown" />
+                  В корзину ничего не добавлено <i className="far fa-frown" />
                 </h3>
               ) : (
                 <ul>
@@ -40,7 +43,9 @@ class Cart extends Component {
           </Scrollbars>
           <TotalAmount />
         </div>
+        
       </div>
+
     );
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import ProjectSummary from './ProjectSummary';
 import { Link } from 'react-router-dom';
-import Products from './Products';
+// import Products from './Products';
 const ProjectList = ({projects},props) => {
     return (
         <div className="project-list section">

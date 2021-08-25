@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase';
 import { editProject } from '../../store/actions/projectActions';
-import CustomSelect from './Select'
-import { Category } from '@material-ui/icons';
+// import CustomSelect from './Select'
+// import { Category } from '@material-ui/icons';
 
-const options = [
-    { value: 'vine', label: 'Вино' },
-    { value: 'champagne', label: 'Шампанское' },
-    { value: 'vodka', label: 'Водка' }
-  ]
+// const options = [
+//     { value: 'vine', label: 'Вино' },
+//     { value: 'champagne', label: 'Шампанское' },
+//     { value: 'vodka', label: 'Водка' }
+//   ]
 
   
 class EditProject extends Component {

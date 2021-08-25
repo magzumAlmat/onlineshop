@@ -1,4 +1,4 @@
-import projectReducer from "./projectReducer";
+// import projectReducer from "./projectReducer";
 
 const initState = {
     q: ''

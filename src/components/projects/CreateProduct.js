@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
-import { createProject } from '../../store/actions/projectActions';
+// import { createProject } from '../../store/actions/projectActions';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'; 
 // import Select from './Select';
-import Select from "react-select";
+// import Select from "react-select";
 import CustomSelect from './Select'
-import { Category } from '@material-ui/icons';
+// import { Category } from '@material-ui/icons';
 import {createProductAction} from '..//../store/actions/productActions';
 
-const colorOptions = [
-    { value: 'ocean', label: 'Ocean', color: '#00B8D9', isFixed: true },
-    { value: 'blue', label: 'Blue', color: '#0052CC', disabled: true },
-    { value: 'purple', label: 'Purple', color: '#5243AA' },
-    { value: 'red', label: 'Red', color: '#FF5630', isFixed: true },
-    { value: 'orange', label: 'Orange', color: '#FF8B00' },
-    { value: 'yellow', label: 'Yellow', color: '#FFC400' },
-    { value: 'green', label: 'Green', color: '#36B37E' },
-    { value: 'forest', label: 'Forest', color: '#00875A' },
-    { value: 'slate', label: 'Slate', color: '#253858' },
-    { value: 'silver', label: 'Silver', color: '#666666' },
-  ];
+// const colorOptions = [
+//     { value: 'ocean', label: 'Ocean', color: '#00B8D9', isFixed: true },
+//     { value: 'blue', label: 'Blue', color: '#0052CC', disabled: true },
+//     { value: 'purple', label: 'Purple', color: '#5243AA' },
+//     { value: 'red', label: 'Red', color: '#FF5630', isFixed: true },
+//     { value: 'orange', label: 'Orange', color: '#FF8B00' },
+//     { value: 'yellow', label: 'Yellow', color: '#FFC400' },
+//     { value: 'green', label: 'Green', color: '#36B37E' },
+//     { value: 'forest', label: 'Forest', color: '#00875A' },
+//     { value: 'slate', label: 'Slate', color: '#253858' },
+//     { value: 'silver', label: 'Silver', color: '#666666' },
+//   ];
 
 
   
@@ -53,7 +53,7 @@ class CreateProject extends Component {
         picture:'',
         price:0,
         sizes:[],
-        title:''
+        
     }
 
     handleChange = (e) => {

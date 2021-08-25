@@ -2,7 +2,7 @@ import React from 'react'
 import ProjectSummary from './ProjectSummary';
 import { Link } from 'react-router-dom';
 
-import Products from './Products';
+// import Products from './Products';
 const ProjectListWithoutAuth = ({projects}) => {
     console.log('its project',projects)
     return (

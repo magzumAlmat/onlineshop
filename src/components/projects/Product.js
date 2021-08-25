@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addItem } from '../../store/actions/cartActions';
-import uuid from 'uuid';
+// import uuid from 'uuid';
 import { withStyles } from '@material-ui/core/styles';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -22,8 +22,8 @@ class Product extends Component {
     this.setState({ open: true });
     const { addItem } = this.props;
     addItem(product);
-    console.log('product from addClick 111111111111111111',product)
-    console.log('item from addClick 111111111111111111',addItem)
+    // console.log('product from addClick 111111111111111111',product)
+    // console.log('item from addClick 111111111111111111',addItem)
   };
 
   handleClose = (event, reason) => {

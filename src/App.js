@@ -8,8 +8,8 @@ import SignUp from './components/auth/SignUp';
 import CreateProject from './components/projects/CreateProject';
 import EditProject from './components/projects/EditProject'
 import Profile from './components/profile/Profile'
-import ProjectListWithoutAuth from './components/projects/ProjectListWithoutAuth';
-import Product from './components/projects/Product';
+// import ProjectListWithoutAuth from './components/projects/ProjectListWithoutAuth';
+// import Product from './components/projects/Product';
 import Products from './components/projects/Products';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';

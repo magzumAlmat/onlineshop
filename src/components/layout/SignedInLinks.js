@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { signOut } from '../../store/actions/authActions';
 import M from 'materialize-css';
 import SearchInput from './SearchInput';
-import SearchButton from './SearchButton';
+// import SearchButton from './SearchButton';
 
 class SignedInLinks extends Component{
     componentDidMount(){
@@ -25,7 +25,7 @@ class SignedInLinks extends Component{
                     <NavLink to="/create">New Project</NavLink>
                 </li>
                 <li>
-                    <a onClick={this.props.signOut}>Log Out</a>
+                    <a onClick={this.props.signOut} href={() => false}>Log Out</a>
                 </li>
                 <li>
                     <NavLink to="/" 

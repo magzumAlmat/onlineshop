@@ -1,11 +1,11 @@
-import React,{useState} from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
-import { Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 import moment from 'moment'
 import { deleteProject } from '../../store/actions/projectActions'
-import Products from './Products'
+// import Products from './Products'
 // const [cart,setCart]=useState([])
 
 

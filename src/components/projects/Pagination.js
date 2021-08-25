@@ -104,14 +104,14 @@ class Pagination extends React.Component {
           <li
             className={`page-item ${pager.currentPage === 1 ? 'disabled' : ''}`}
           >
-            <a className="page-link" onClick={() => this.setPage(1)}>
+            <a className="page-link" onClick={() => this.setPage(1)} href={() => false}>
               First
             </a>
           </li>
           <li
             className={`page-item ${pager.currentPage === 1 ? 'disabled' : ''}`}
           >
-            <a
+            <a href={() => false}
               className="page-link"
               onClick={() => this.setPage(pager.currentPage - 1)}
             >
@@ -125,7 +125,7 @@ class Pagination extends React.Component {
                 pager.currentPage === page ? 'active' : ''
               }`}
             >
-              <a className="page-link" onClick={() => this.setPage(page)}>
+              <a className="page-link" onClick={() => this.setPage(page)} href={() => false}>
                 {page}
               </a>
             </li>
@@ -135,7 +135,7 @@ class Pagination extends React.Component {
               pager.currentPage === pager.totalPages ? 'disabled' : ''
             }`}
           >
-            <a
+            <a href={() => false}
               className="page-link"
               onClick={() => this.setPage(pager.currentPage + 1)}
             >
@@ -147,7 +147,7 @@ class Pagination extends React.Component {
               pager.currentPage === pager.totalPages ? 'disabled' : ''
             }`}
           >
-            <a
+            <a href={() => false}
               className="page-link"
               onClick={() => this.setPage(pager.totalPages)}
             >

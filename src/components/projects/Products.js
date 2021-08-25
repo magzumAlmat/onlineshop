@@ -50,7 +50,7 @@ const mapStateToProps = (state) => ({
   products: state.firestore.ordered.products
 });
 
-console.log('this is map state to props',mapStateToProps)
+// console.log('this is map state to props',mapStateToProps)
 
 
 export default compose(

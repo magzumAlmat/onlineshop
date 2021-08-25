@@ -4,10 +4,10 @@ import ProjectList from '../projects/ProjectList';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import ProjectListWithoutAuth from '../projects/ProjectListWithoutAuth';
 import Products from '../projects/Products';
-import OptionsPanel from '../layout/OptionsPanel';
+// import OptionsPanel from '../layout/OptionsPanel';
 import PropTypes from 'prop-types';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
