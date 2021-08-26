@@ -196,7 +196,7 @@ body {
       font-size: 12px; } }
 
 .header {
-  background: url(../src/img/bg-shoes.jpg) no-repeat center;
+  /* background: url(../src/img/bg-shoes.jpg) no-repeat center; */
   background-size: cover;
   min-height: 100vh;
   max-height: 100vh; }
