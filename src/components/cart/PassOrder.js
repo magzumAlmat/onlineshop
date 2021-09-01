@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router'
 import { Link } from 'react-router-dom'
-
+import { showCart } from '../../store/actions/cartActions';
+import Button from 'react-bootstrap/Button'
 export default class PassOrder extends Component {
    
     render() {
@@ -12,9 +13,13 @@ export default class PassOrder extends Component {
                
                
              {console.log('вывод с PASS ORDER-----',this.props.prod)}
-             <Link to={{pathname:"/createorder",params:Greeting}} className='button' >
-                Создать заказ
+          
+             <Link to={{pathname:"/createorder",params:Greeting,showCart}} >
+                <Button  variant="primary" size="lg">
+                    Click Me!
+                </Button>
              </Link>
+           
 
            
 

@@ -18,6 +18,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import Cart from './components/cart/Cart';
 import CreateProduct from './components/projects/CreateProduct';
 import CreateOrder from './components/layout/CreateOrder';
+import showOrders from './components/projects/showOrders';
+
 var selectedTab;
 class App extends Component {
   render() { 
@@ -28,7 +30,7 @@ class App extends Component {
               <Navbar />
             
           <Switch>
-            <Route exact path='/' component={Dashboard} />
+            <Route exact path='/' component={Products} />
             <Route exact path='/project/:id' component={ProjectDetails} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
@@ -39,6 +41,7 @@ class App extends Component {
             <Route path='/products' component={Products} />
             <Route path='/cart' component={Cart} curTab={selectedTab}/>
             <Route path='/createorder' component={CreateOrder} />
+            <Route path='/showorders' component={showOrders} />
             
           </Switch>
        

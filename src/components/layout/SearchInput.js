@@ -14,7 +14,7 @@ class SearchInput extends Component{
     
     render(){
         return (
-            <input type="text" id="search" name="search" placeholder="Search..." onChange={this.handleChange.bind(this)}/>
+            <input   type="text" id="search" name="search" placeholder="Search..." onChange={this.handleChange.bind(this)}/>
         );
     }
 }

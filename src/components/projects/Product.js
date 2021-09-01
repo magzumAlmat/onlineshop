@@ -41,13 +41,16 @@ class Product extends Component {
       <div className="col-sm-6 col-md-4">
         <div className="card">
           <img
-            className="card-img-top img-fluid"
+            className="card-img-top "
             src={product.picture}
             alt={product.name}
+            width='300'
+            height='180'
           />
           <div className="card-body">
+          
             <h5 className="card-title">{product.name}</h5>
-            <p className="price">{product.price} €</p>
+            <p className="price">{product.price} T</p>
             {/* <ul className="colors">
               <li>Colors:</li>
               {product.colors.map(color => (

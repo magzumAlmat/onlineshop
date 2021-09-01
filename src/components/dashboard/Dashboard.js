@@ -47,6 +47,7 @@ class Dashboard extends Component {
             <div className="row">
                 <div className="col s12 m6">
                     <ProjectListWithoutAuth projects={this.props.projects} />
+                    
                 </div>
                 <div className="col s12 m5 offset-m1">
                     <Notifications notifications={notifications}/>

@@ -9,6 +9,7 @@ let selectedTab;
 
 class Cart extends Component {
   showCart = () => {
+    console.log('закрытие корзины Я кликнулся!')
     const { showCart } = this.props;
     showCart();
     // selectedTab = value;

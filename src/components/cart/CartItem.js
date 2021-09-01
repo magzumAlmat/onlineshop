@@ -23,6 +23,7 @@ class CartItem extends Component {
   increment = () => {
     const { addItem } = this.props;
     addItem(this.props.item);
+    
   };
 
   decrement = id => {
@@ -64,7 +65,7 @@ class CartItem extends Component {
             >
               -
             </button>
-            {item.qty}
+            {item.qty}{item.def}
             
             <button className="btn add" onClick={this.increment.bind(this)}>
               +    

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updatePrice } from '../../store/actions/cartActions';
-
 import PassOrder from './PassOrder';
-import {closeCart} from './Cart';
-
+import {showCart} from '../../store/actions/cartActions'
 
 class TotalAmount extends Component {
   // handleSubmit(props){
@@ -56,7 +54,7 @@ class TotalAmount extends Component {
       
       
     
-      <PassOrder prod={this.props.cart}  />
+      <PassOrder prod={this.props.cart} onClick={showCart()} />
       {/* <button onClick={closeCart()}>close</button>
            */}
     

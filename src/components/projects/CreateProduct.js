@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React,{ Component,useState } from 'react';
 // import { createProject } from '../../store/actions/projectActions';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'; 
@@ -21,8 +21,15 @@ import {createProductAction} from '..//../store/actions/productActions';
 //     { value: 'silver', label: 'Silver', color: '#666666' },
 //   ];
 
+import FileUploader from '../layout/FileUploader'
+const [file, setFile] = useState(null);
 
-  
+ const handleChange123 = function loadFile(e) {
+      if (e.target.files.length > 0) {
+        const file = URL.createObjectURL(e.target.files[0]);
+        setFile(file);
+      }
+    };
 const options = [
     { value: 'vine', label: 'Вино' },
     { value: 'champagne', label: 'Шампанское' },
@@ -53,6 +60,7 @@ class CreateProject extends Component {
         picture:'',
         price:0,
         sizes:[],
+        defaultQty:0,
         
     }
 
@@ -61,6 +69,7 @@ class CreateProject extends Component {
         this.setState({
             [e.target.id]: e.target.value
         })
+        // handleChange123(e);
     }
 
     handleSubmit = (e) => {
@@ -69,7 +78,11 @@ class CreateProject extends Component {
         this.props.createProductAction(this.state)
         this.props.history.push('/products');
         
+        
+       
     }
+    
+
 
      onChangeInput=(value,e)=> {
         // console.log(e.target.Category)
@@ -88,6 +101,15 @@ class CreateProject extends Component {
         
         
     }
+
+
+    //-------------------------------------------------------------------------
+    
+
+    
+
+   
+    //------------------------------------------------------------------------
     
     render() {
         const { auth } = this.props;
@@ -96,6 +118,7 @@ class CreateProject extends Component {
 
         return (
             <div className="container">
+                
                 <form className="white" onSubmit={this.handleSubmit}>
                   
                   
@@ -128,6 +151,19 @@ class CreateProject extends Component {
                         <textarea id="content" className="materialize-textarea" onChange={this.handleChange}></textarea>
                     </div>
 
+                    
+{/*                     
+                    <FileUploader/> */}
+
+                {/* <input type="file" onChange={this.handleChange} id="upload" accept="image/*" />
+                    <label htmlFor="upload">
+                        <div>
+                        <img alt="uploadImage" src={file} />
+
+                        </div>
+                    </label> */}
+
+
 
                     <div className="input-field">
                         <label htmlFor="picture">IMAGE LINK</label>
@@ -151,6 +187,10 @@ class CreateProject extends Component {
                         <input type="number" id="price" onChange={this.handleChange} />
                     </div>
                     
+                    <div className="input-field">
+                        <label htmlFor="default qty">default qty</label>
+                        <input type="number" id="default qty" onChange={this.handleChange} />
+                    </div>
                     <br/>
                     <br/>
                     
