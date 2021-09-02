@@ -42,7 +42,7 @@ class Product extends Component {
         <div className="card">
           <img
             className="card-img-top "
-            src={product.picture}
+            src={product.url}
             alt={product.name}
             width='300'
             height='180'

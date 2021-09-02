@@ -7,29 +7,9 @@ import { Redirect } from 'react-router-dom';
 import CustomSelect from './Select'
 // import { Category } from '@material-ui/icons';
 import {createProductAction} from '..//../store/actions/productActions';
+import firebase from 'firebase';
+import { storage } from '../../config/fbConfig';
 
-// const colorOptions = [
-//     { value: 'ocean', label: 'Ocean', color: '#00B8D9', isFixed: true },
-//     { value: 'blue', label: 'Blue', color: '#0052CC', disabled: true },
-//     { value: 'purple', label: 'Purple', color: '#5243AA' },
-//     { value: 'red', label: 'Red', color: '#FF5630', isFixed: true },
-//     { value: 'orange', label: 'Orange', color: '#FF8B00' },
-//     { value: 'yellow', label: 'Yellow', color: '#FFC400' },
-//     { value: 'green', label: 'Green', color: '#36B37E' },
-//     { value: 'forest', label: 'Forest', color: '#00875A' },
-//     { value: 'slate', label: 'Slate', color: '#253858' },
-//     { value: 'silver', label: 'Silver', color: '#666666' },
-//   ];
-
-import FileUploader from '../layout/FileUploader'
-const [file, setFile] = useState(null);
-
- const handleChange123 = function loadFile(e) {
-      if (e.target.files.length > 0) {
-        const file = URL.createObjectURL(e.target.files[0]);
-        setFile(file);
-      }
-    };
 const options = [
     { value: 'vine', label: 'Вино' },
     { value: 'champagne', label: 'Шампанское' },
@@ -61,6 +41,7 @@ class CreateProject extends Component {
         price:0,
         sizes:[],
         defaultQty:0,
+        url:''
         
     }
 
@@ -69,7 +50,7 @@ class CreateProject extends Component {
         this.setState({
             [e.target.id]: e.target.value
         })
-        // handleChange123(e);
+       
     }
 
     handleSubmit = (e) => {
@@ -85,29 +66,69 @@ class CreateProject extends Component {
 
 
      onChangeInput=(value,e)=> {
-        // console.log(e.target.Category)
-        // const setCategory=e.target.value.toString()
         this.state.Category=value
-        // console.log('Value of Category',typeof(valueString))
-        // console.log('Category=',this.props.Category)
-        this.state.selectOptions=this.state.Category.value
-
-        // this.setState({selectOptions: options})
-        // console.log('this is selected options',this.state.selectOptions)
-        // this.setState({
-        //     [e.target.id]: e.target.valueString
-        // })
-        
-        
-        
+        this.state.selectOptions=this.state.Category.value           
     }
 
 
     //-------------------------------------------------------------------------
     
-
-    
-
+ ReactFirebaseFileUpload = () => {
+    const [image, setImage] = useState(null);
+    const [url, setUrl] = useState("");
+    const [progress, setProgress] = useState(0);
+  
+    const handleChange = e => {
+      if (e.target.files[0]) {
+        setImage(e.target.files[0]);
+      }
+    };
+  
+    const handleUpload = () => {
+      const uploadTask = storage.ref(`images/${image.name}`).put(image);
+      uploadTask.on(
+        "state_changed",
+        snapshot => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setProgress(progress);
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          storage
+            .ref("images")
+            .child(image.name)
+            .getDownloadURL()
+            .then(url => {
+              setUrl(url);
+              this.setState({url})
+            });
+        }
+      );
+    };
+  
+    console.log("URL ", this.state.url);
+  
+    return (
+      <div>
+        <progress value={progress} max="100" />
+        <br />
+        <br />
+        <input type="file" onChange={handleChange}  />
+        <a onClick={handleUpload}>Загрузить</a>
+        
+        <br />
+        {url}
+        <br />
+        <img src={url || "http://via.placeholder.com/300"} alt="firebase-image" />
+      </div>
+    );
+  };
+  
+ 
    
     //------------------------------------------------------------------------
     
@@ -151,25 +172,20 @@ class CreateProject extends Component {
                         <textarea id="content" className="materialize-textarea" onChange={this.handleChange}></textarea>
                     </div>
 
+                    <div>
+                       <this.ReactFirebaseFileUpload/>
+                    </div>
                     
-{/*                     
-                    <FileUploader/> */}
-
-                {/* <input type="file" onChange={this.handleChange} id="upload" accept="image/*" />
-                    <label htmlFor="upload">
-                        <div>
-                        <img alt="uploadImage" src={file} />
-
-                        </div>
-                    </label> */}
 
 
 
-                    <div className="input-field">
+                  
+
+                    {/* <div className="input-field">
                         <label htmlFor="picture">IMAGE LINK</label>
                         <input type="text" id="picture" onChange={this.handleChange} />
                     </div>
-                    
+                     */}
                     <br/>
                     <br/>
                     
@@ -195,7 +211,7 @@ class CreateProject extends Component {
                     <br/>
                     
                     <div className="input-field">
-                        <button className="btn pink lighten-1 z-depth-0">Create Project</button>
+                        <button className="btn pink lighten-1 z-depth-0" >Create Project</button>
                     </div>
 
 

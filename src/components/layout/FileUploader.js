@@ -35,6 +35,8 @@ function FileUploader() {
       setFile(file);
     }
   };
+
+  
   return (
     <div className="App">
      
