@@ -13,12 +13,15 @@ import Profile from './components/profile/Profile'
 import Products from './components/projects/Products';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import '@fortawesome/fontawesome-free/css/all.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 import Cart from './components/cart/Cart';
 import CreateProduct from './components/projects/CreateProduct';
 import CreateOrder from './components/layout/CreateOrder';
 import showOrders from './components/projects/showOrders';
+import ProductDetails from './components/projects/ProductDetails';
 
 var selectedTab;
 class App extends Component {
@@ -27,11 +30,12 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
         <header className="header">
-              <Navbar />
+          <Navbar />
             
           <Switch>
             <Route exact path='/' component={Products} />
-            <Route exact path='/project/:id' component={ProjectDetails} />
+            <Route  path='/project/:id' component={ProjectDetails} />
+            <Route exact path='/product/:id' component={ProductDetails} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
             <Route path='/create' component={CreateProject} />

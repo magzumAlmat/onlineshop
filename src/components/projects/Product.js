@@ -41,15 +41,14 @@ class Product extends Component {
       <div className="col-sm-6 col-md-4">
         <div className="card">
           <img
-            className="card-img-top "
+            className="card-img-top img-fluid "
             src={product.url}
             alt={product.name}
-            width='300'
-            height='180'
+           
           />
           <div className="card-body">
           
-            <h5 className="card-title">{product.name}</h5>
+            <h6 className="card-title">{product.name}</h6>
             <p className="price">{product.price} T</p>
             {/* <ul className="colors">
               <li>Colors:</li>
@@ -67,8 +66,7 @@ class Product extends Component {
             <div className="text-center">
               <button
                 className="btn-custom"
-                onClick={this.addClick.bind(this, product)}
-              >
+                onClick={this.addClick.bind(this, product)}>
                 Add to cart
               </button>
             </div>

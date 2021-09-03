@@ -13,6 +13,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Nav from 'react-bootstrap/Nav'
+
 var selectedTab;
 
 class SignedInLinks extends Component{
@@ -21,46 +23,38 @@ class SignedInLinks extends Component{
         M.Dropdown.init(elems, {inDuration: 300, outDuration: 225, alignment: 'right', coverTrigger: false});
     }
 
+  
+    
     render(){
         return (
             <div>
-        <Container>
-        <Row>
-            <Col xs={2} md={2}>
-            <Navbar>
-            <Navbar className='container'>
-            <Navbar.Brand href="#home">ALCO</Navbar.Brand>
-            </Navbar>
-            </Navbar>
-            </Col>
-            <Col xs={4} md={3}>
-             <SearchInput/>
-            </Col>
-            <Col xs={12} md={7}>
-              <Container>
-                  <Row>
-                  <Col xs={8} md={4} ></Col>
-                  <Col xs={2} md={2}> <NavLink to="/showorders" >Заказы</NavLink></Col>
-                  <Col xs={2} md={2}> <NavLink to="/products">Продукты</NavLink></Col>
-                  <Col xs={2} md={2}><NavLink to="/createproduct">Добавить продукт</NavLink></Col>
+       
+        
+        <Navbar className='container' style={{backgroundColor:"#343a40"}} >
+        <Navbar.Brand href="/">ALCO</Navbar.Brand>
+        <Navbar.Toggle />
+        <Navbar.Collapse className="justify-content-end  ">
+           
+        <NavLink to="/showorders" className="mx-4" >Заказы</NavLink>
+            <NavLink to="/products" className="mx-4">Продукты</NavLink>
+            <NavLink to="/createproduct" className="mx-4">Добавить продукт</NavLink>
+            <a onClick={this.props.signOut} href={() => false} className='mx-2'> Выйти</a>
+            <div >
                 
-                  <Col xs={2} md={2}>
-                        <a onClick={this.props.signOut} href={() => false}>Выйти</a>
-                        <NavLink to="/" 
-                            className="btn btn-floating pink lighten-1 dropdown-trigger"
-                            data-target='dropdown-profile'>{this.props.profile.initials}
-                        </NavLink>
-                  
-                        <ul id="dropdown-profile" className="dropdown-content">
-                                    <li><NavLink to='/profile'>Profile</NavLink></li>
-                        </ul>
-                  </Col>
+                    
+                    <NavLink to="/" className="btn btn-floating pink lighten-1 dropdown-trigger mx-4"
+                        data-target='dropdown-profile'>{this.props.profile.initials}
+                    </NavLink>
+                
+                    <ul id="dropdown-profile" className="dropdown-content">
+                     <li><NavLink to='/profile'>Profile</NavLink></li>
+                    </ul>
+            </div>
+        </Navbar.Collapse>
+      </Navbar>
 
-                </Row>
-                </Container>   
-            </Col>
-          </Row>
-        </Container>
+
+
         </div>
             // <ul className="right">
             //     <li>

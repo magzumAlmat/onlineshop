@@ -10,6 +10,8 @@ import thunk from 'redux-thunk';
 
 import firebase from './config/fbConfig';
 
+
+
 // const store = createStore(rootReducer,
 //     compose(
 //         applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),

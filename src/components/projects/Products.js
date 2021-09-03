@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
-
+import { Link } from 'react-router-dom';
 import Product from './Product';
 import Pagination from './Pagination';
 import Spinner from '../layout/Spinner';
@@ -27,9 +27,13 @@ class Products extends Component {
         <div className="products-wrapper">
           <div className="container">
             <div className="row">
+           
               {this.state.pageOfItems.map(product => (
-                <Product product={product} key={product.id} />
+                // <Link to={'/product/' + product.id} key={product.id} params={product}>
+                  <Product product={product} key={product.id} />
+                // </Link>
               ))}
+            
               <Pagination items={products} onChangePage={this.onChangePage} />
             </div>
           </div>

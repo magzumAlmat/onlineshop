@@ -16,7 +16,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 const SignedOutLinks = () => {
     return (<div>
-        <Container>
+        {/* <Container>
         <Row>
             <Col xs={2} md={2}>
             <Navbar>
@@ -38,7 +38,22 @@ const SignedOutLinks = () => {
                 </Container>   
             </Col>
           </Row>
-        </Container>
+        </Container> */}
+
+
+       
+
+
+        <Navbar className='container'  style={{backgroundColor:"#343a40"}}>
+        <Navbar.Brand href="/">ALCO</Navbar.Brand>
+        <Navbar.Toggle />
+        <Navbar.Collapse className="justify-content-end  ">
+           
+            <NavLink to="/signup" className="mx-4">РЕГИСТРАЦИЯ</NavLink>
+            <NavLink to="/signin" className="mx-4" >ВХОД</NavLink>
+            <div><CartIcon /></div>
+        </Navbar.Collapse>
+      </Navbar>
         </div>
 
     );

@@ -15,78 +15,28 @@ import Nav from 'react-bootstrap/Nav'
 import InputGroup from 'react-bootstrap/InputGroup'
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Container from 'react-bootstrap/esm/Container';
 const MainNavbar = (props) => {
     // console.log('this is cardItem from navbar',props);
     const { auth, profile } = props;
     const links = auth.uid ? <SignedInLinks profile={profile} /> : <SignedOutLinks />;
+    let styles={
+        divStyle:{backgroundColor:'#343a40', paddingBottom:'0.1%'}
+        };
     return (
-        <div className="darken-3  grey">
-    
-   
-          <Navbar collapseOnSelect expand="lg" bg="dark" >
-          <div className='container'>
-                <Navbar.Brand href="#home"></Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="mr-auto">
-                    {/* <Nav.Link href="#features">Features</Nav.Link>
-                    <Nav.Link href="#pricing">Pricing</Nav.Link> */}
-                   
-                    </Nav>
-                    <Nav>
-                    <Nav.Link href="#deets">ВОПРОСЫ/ОТВЕТЫ</Nav.Link>
-                    <Nav.Link eventKey={2} href="#memes">
-                        КОНТАКТЫ
-                    </Nav.Link>
-                    </Nav>
-                </Navbar.Collapse>
-            </div>
-            </Navbar>
-            {links}
-            {/* <Navbar collapseOnSelect expand="lg" bg="dark" >
-            <div className='container'>
-                <Navbar.Brand href="#">ALCO</Navbar.Brand>
-                <Navbar.Toggle aria-controls="navbarScroll" />
-                <Navbar.Collapse id="navbarScroll">
-                    
-                <InputGroup className="mb-3">
-                    <FormControl
-                    placeholder="Поиск"
-                    aria-label="Поиск"
-                    aria-describedby="basic-addon2"
-                    />
-                    <InputGroup.Append>
-                    <Button variant="outline-secondary" size="sm"><SearchIcon fontSize="small"/></Button>
-                    </InputGroup.Append>
-                    <InputGroup.Append>
-                    {links}
-                    </InputGroup.Append> 
-                    <InputGroup.Append>
-                    <CartIcon />
-                    </InputGroup.Append>
-                </InputGroup>
-                </Navbar.Collapse>
-                </div>
-                </Navbar> */}
-
-
-
+        <div  >
        
+        <div  style={styles.divStyle}> 
+            {links}
+            </div>
+        
+       
+           
               
-                    </div>
-             
-
-        // <nav className="nav-wrapper grey darken-3">
-           
-          
-        //     <div className="container">
-        //        <Link to='/' className="brand-logo"></Link>
-        //        {/* <CartIcon/> */}
-        //         {links}  
-        //         <CartIcon />
-        //     </div>
-           
-        // </nav>
+   
+         
+            </div>
+         
     );
 }
 

@@ -196,7 +196,7 @@ body {
       font-size: 12px; } }
 
 .header {
-  /* background: url(../src/img/bg-shoes.jpg) no-repeat center; */
+  background: white;
   background-size: cover;
   min-height: 100vh;
   max-height: 100vh; }
@@ -273,7 +273,7 @@ body {
     width: 100%; }
     .products .pagination-nav .page-item.active .page-link {
       background-color: #ff4372;
-      border-color: #ff4372; }
+      border-color: #d8cbce; }
     .products .pagination-nav .page-link {
       border-radius: 0 !important; }
       .products .pagination-nav .page-link:hover {

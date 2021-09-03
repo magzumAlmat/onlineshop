@@ -15,7 +15,7 @@ class CartIcon extends Component {
   render() {
     const { cartItems, totalPrice } = this.props.cart;
     return (
-      <div className="cart-icon ml-auto">
+      <div className="cart-icon ml-auto" style={{margin:'1.3em 0  0 0'}}>
         <button type="button" onClick={this.showCart}>
           <i className="fas fa-shopping-cart" />
           <span className="badge badge-primary">
