@@ -45,6 +45,7 @@ class EditProject extends Component {
     handleClick = (e) =>{
         e.preventDefault();
         const id = this.props.match.params.id;
+        console.log('id from edit proj',id)
         this.props.editProject(id, this.state);
         this.props.history.push(`/project/${id}`)
     }

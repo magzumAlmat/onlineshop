@@ -6,7 +6,9 @@ import { withStyles } from '@material-ui/core/styles';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-
+import { Link } from 'react-router-dom';
+import { showCart } from '../../store/actions/cartActions';
+import PropTypes from 'prop-types';
 const styles = theme => ({
   // close: {
   //   width: theme.spacing.unit * 4,
@@ -24,6 +26,11 @@ class Product extends Component {
     addItem(product);
     // console.log('product from addClick 111111111111111111',product)
     // console.log('item from addClick 111111111111111111',addItem)
+    const { showCart } = this.props;
+    console.log('after button clicked to that ------',showCart)
+    showCart(product);
+    
+ 
   };
 
   handleClose = (event, reason) => {
@@ -34,11 +41,33 @@ class Product extends Component {
     this.setState({ open: false });
   };
 
+  handleRedirect = product => {
+    console.log('id of product',product.id)
+    const {addID}=this.props
+    // addID(product)
+    // console.log('id from props',addID)
+
+    //this.props.history.push(`/product/${id}`)
+    
+    // console.log('product from addClick 111111111111111111',product)
+    // console.log('item from addClick 111111111111111111',addItem)
+  };
+
+  
+
   render() {
     const { product } = this.props;
     const { classes } = this.props;
+    console.log('categorys',product.Category.value)
+    
+ 
     return (
+   
       <div className="col-sm-6 col-md-4">
+           
+        
+       {/* <p className="category">{product}</p> */}
+         {/* {product.Category.value === 'vodka'  } */}
         <div className="card">
           <img
             className="card-img-top img-fluid "
@@ -47,9 +76,10 @@ class Product extends Component {
            
           />
           <div className="card-body">
-          
+            <p>{product.Category.value}</p>
             <h6 className="card-title">{product.name}</h6>
             <p className="price">{product.price} T</p>
+
             {/* <ul className="colors">
               <li>Colors:</li>
               {product.colors.map(color => (
@@ -69,6 +99,20 @@ class Product extends Component {
                 onClick={this.addClick.bind(this, product)}>
                 Add to cart
               </button>
+             
+              {/* <Link to={'/product/' + product.id} key={product.id} params={this.product}>
+                <button>  Подробнее </button>
+              </Link> */}
+
+              <Link to={
+                { 
+                    pathname: "/product/" + this.props.product.Id,
+                    myCustomProps: product
+                }
+            }>
+                   <button>  Подробнее </button>
+            </Link>
+
             </div>
           </div>
         </div>
@@ -101,7 +145,18 @@ class Product extends Component {
   }
 }
 
+
+Product.propTypes = {
+  showCart: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  cart: state.cart
+});
+
+
+
 export default connect(
-  null,
-  { addItem }
+  mapStateToProps,
+  { addItem,showCart }
 )(withStyles(styles)(Product));

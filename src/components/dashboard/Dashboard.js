@@ -42,6 +42,7 @@ class Dashboard extends Component {
         if(!auth.uid) return (
        
        <section name="products" className="products" id="products">
+      
             <div className="dashboard container">
         
             <div className="row">

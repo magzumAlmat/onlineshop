@@ -12,10 +12,6 @@ import { deleteProject } from '../../store/actions/projectActions'
 
 const ProjectDetails = (props) => {
     const { project, auth } = props;
-    
-
-    
-
     const handleClick = (e) =>{
         e.preventDefault();
         const id = props.match.params.id;
@@ -30,6 +26,7 @@ const ProjectDetails = (props) => {
     }
 
     console.log('project from project details',project)
+    
     if(!auth.uid) return (
         
         <div className="container section project-details">
@@ -37,9 +34,7 @@ const ProjectDetails = (props) => {
                     <div className="card-content">
                         <p>{project.Category.label}</p>
                         <span className="card-title">{ project.title }</span>
-                        <p>{ project.content }</p>
-
-                      
+                        <p>{project.content}</p>
 
                         {/* <button className="button waves-effect waves-light btn indigo darken-2"
                         disabled={disabledBool}

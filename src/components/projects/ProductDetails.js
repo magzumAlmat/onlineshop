@@ -10,10 +10,15 @@ import { deleteProject } from '../../store/actions/projectActions'
 
 // const {auth}=props
 // const { product } = this.props;
-
+import Media from 'react-bootstrap/Media'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Alert from 'react-bootstrap/Alert'
 const ProductDetails = (props) => {
-    const { product, auth } = props;
-    console.log(product,auth)
+    const { product} = props.location.myCustomProps;
+    const {auth}=props
+    console.log('productDetail--',product,'AUTH--',auth)
     
 
     
@@ -31,42 +36,107 @@ const ProductDetails = (props) => {
         // props.history.push(`/project/${props.match.params.id}/edit`);
     }
 
-    console.log('proDDDUCT from project details',props.location)
+    console.log('proDDDUCT from project details',props.location.myCustomProps)
 
-    if(!auth.uid) return (
+    //if(!auth.uid)
+    return (
         
-        <div className="container section project-details">
-                <div className="card z-depth-0">
-                    <div className="card-content">
-                    <img
-                        className="card-img-top "
-                        src={product.url}
-                        alt={product.name}
-                        width='400'
-                        height='400'
-                        style={{ 
-                        paddingTop:'5%'
-                        }}
-                    />
+        // <div className="container section project-details">
+        //         <div className="card z-depth-0">
+        //             <div className="card-content">
+
+        //             <img
+        //                 className="card-img-top "
+        //                 src={props.location.myCustomProps.url}
+        //                 alt={props.location.myCustomProps.name}
+        //                 width='600'
+        //                 height='600'
+        //                 style={{ 
+        //                 paddingTop:'5%'
+        //                 }}
+        //             />
         
           
-            <h5 className="card-title">{product.name}</h5>
-            <p className="price">{product.price} T</p>
+        //     <h5 className="card-title">{props.location.myCustomProps.name}</h5>
+        //     <p className="price">{props.location.myCustomProps.price} T</p>
                      
                    
                       
-                    </div>
+        //             </div>
                     
-                    <div className="card-action grey lighten-4 grey-text">
-                        <div>Posted by {product.authorFirstName} {product.authorLastName}</div>
-                        {/* <div>{moment(product.createdAt.toDate()).calendar()}</div> */}
-                    </div>
-                    {/* <div>
-                        <Cart cartItems={cartItems }/>
-                    </div> */}
+        //             <div className="card-action grey lighten-4 grey-text">
+        //                 <div>Posted by {props.location.myCustomProps.authorFirstName} {props.location.myCustomProps.authorLastName}</div>
+        //                 {/* <div>{moment(product.createdAt.toDate()).calendar()}</div> */}
+        //             </div>
+        //             {/* <div>
+        //                 <Cart cartItems={cartItems }/>
+        //             </div> */}
                
-                </div>
-            </div>
+        //         </div>
+        //     </div>
+
+        <div className='container'>
+            <Container>
+            <Row>
+                <Col> 
+                <img width={300}
+                     height={300}
+                     className="mr-3"
+                     src={props.location.myCustomProps.url}
+                     alt={props.location.myCustomProps.name}
+                />
+                </Col>
+
+                <Col> 
+                <h3>{props.location.myCustomProps.title}</h3>
+                <h5>Категория: {props.location.myCustomProps.Category.label}</h5>
+                {/* <h6>{props.location.myCustomProps.content}</h6> */}
+                <Alert variant="success">
+                    <Alert.Heading>
+                     <h4>{props.location.myCustomProps.price} &#8376;</h4>
+                    </Alert.Heading>
+                    <h6>
+                       1 x {props.location.myCustomProps.title}   
+                       
+                       <span className='float-right'>
+                       {props.location.myCustomProps.price}
+                       </span>
+                    </h6>
+
+                    <hr />
+                    <p className="mb-0">
+                        Whenever you need to, be sure to use margin utilities to keep things nice
+                        and tidy.
+                    </p>
+                    </Alert>
+                <p>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+                ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
+                tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+                Donec lacinia congue felis in faucibus.
+                </p>
+                </Col>
+            </Row>
+            
+            </Container>
+        </div>
+        
+        
+
+            // <Media >
+           
+            //  <div>Posted by {props.location.myCustomProps.authorFirstName} {props.location.myCustomProps.authorLastName}</div>
+            // <div>{moment(props.location.myCustomProps.createdAt.toDate()).calendar()}</div>
+            // <Media.Body>
+            //     <h5></h5>
+            //     <p>
+            //     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+            //     ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
+            //     tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+            //     Donec lacinia congue felis in faucibus.
+            //     </p>
+            // </Media.Body>
+            // </Media>
     )
 
     if (product) {

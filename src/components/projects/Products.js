@@ -30,7 +30,9 @@ class Products extends Component {
            
               {this.state.pageOfItems.map(product => (
                 // <Link to={'/product/' + product.id} key={product.id} params={product}>
-                  <Product product={product} key={product.id} />
+                  <Product product={product} key={product.id} >
+                 
+                  </Product>
                 // </Link>
               ))}
             
